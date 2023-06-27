@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "daisyui": "^2.51.6",
-    "preact": "^10.13.1"
+    "preact": "^10.13.1",
+    "react-router-dom": "^6.14.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
