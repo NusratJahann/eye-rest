@@ -5,27 +5,45 @@ const Timer = ({ minutes = 0, seconds = 0 }) => {
     minutes: parseInt(minutes),
     seconds: parseInt(seconds),
   });
+  const [isRunning, setIsRunning] = useState(true);
 
   useEffect(() => {
     let timer;
-    timer = setInterval(() => {
-      if (remainingTime.minutes === 0 && remainingTime.seconds === 0) {
-        clearInterval(timer);
-      } else if (remainingTime.seconds === 0) {
-        setRemainingTime({
-          minutes: remainingTime.minutes - 1,
-          seconds: 59,
-        });
-      } else {
-        setRemainingTime({
-          minutes: remainingTime.minutes,
-          seconds: remainingTime.seconds - 1,
-        });
-      }
-    }, 1000);
+    if (isRunning) {
+      timer = setInterval(() => {
+        if (remainingTime.minutes === 0 && remainingTime.seconds === 0) {
+          clearInterval(timer);
+        } else if (remainingTime.seconds === 0) {
+          setRemainingTime({
+            minutes: remainingTime.minutes - 1,
+            seconds: 59,
+          });
+        } else {
+          setRemainingTime({
+            minutes: remainingTime.minutes,
+            seconds: remainingTime.seconds - 1,
+          });
+        }
+      }, 1000);
+    }
 
     return () => clearInterval(timer);
-  }, [remainingTime]);
+  }, [remainingTime, isRunning]);
+
+  const pauseAndResume = () => {
+    if (isRunning) {
+      setIsRunning(false);
+    } else {
+      setIsRunning(true);
+    }
+  };
+  const restart = () => {
+    setRemainingTime({
+      minutes: minutes,
+      seconds: seconds,
+    });
+    setIsRunning(false);
+  };
 
   return (
     <div>
@@ -34,6 +52,12 @@ const Timer = ({ minutes = 0, seconds = 0 }) => {
         <span>{remainingTime.minutes}</span>:
         <span>{remainingTime.seconds}</span>
       </div>
+      <button className="btn btn-neutral" onClick={pauseAndResume}>
+        {isRunning ? "pause" : "resume"}
+      </button>
+      <button className="btn btn-neutral" onClick={restart}>
+        restart
+      </button>
     </div>
   );
 };
