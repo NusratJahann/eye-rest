@@ -9,7 +9,7 @@ export default {
     themes: [
       {
         dark: {
-          ...require("daisyui/src/colors/themes")["[data-theme=dark]"],
+          ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
           "primary": "#6eff6a",
           "primary-focus": "#7dff79",
           "neutral": "#131413",
