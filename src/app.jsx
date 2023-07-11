@@ -1,13 +1,11 @@
-import { RouterProvider } from "react-router-dom";
+import Timer from "./Pages/Home/Timer/Timer";
 import "./app.css";
-import { router } from "./routes/routes";
-import "./App.css";
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={router}></RouterProvider>
-    </div>
+      <div>
+        <Timer minutes={12} seconds={0} ></Timer>
+      </div>
   );
 }
 
