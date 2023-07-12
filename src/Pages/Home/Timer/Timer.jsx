@@ -127,29 +127,32 @@ const Timer = () => {
     <div>
       <div className="flex flex-col justify-center items-center min-h-screen min-w-full">
 
-        //* Whole Thing 🪐
+        {/* Whole Thing 🪐 */}
         <div>
-        //* Countdown UI
+
+
+        {/* Countdown UI */}
           <span className="countdown font-mono text-9xl tracking-widest font-bold">
             <span style={{ "--value": remainingTime.minutes }}></span>:
             <span style={{ "--value": remainingTime.seconds }}></span>
           </span>
 
-          //* Group of settings, pause, resume, restart button
+
+          {/* Group of settings, pause, resume, restart button */}
           <div className="flex justify-evenly px-16 mt-6">
-            //************************************ Restart button 👇 *****************************************/
+            {/* Restart button 👇 */}
             <button className="btn btn-neutral p-2 btn-circle"
 
               onClick={restart}>
 
-              //* Icon
+              {/* Icon */}
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
               </svg>
             </button>
 
 
-            //************************** Resume/Pause button 👇 ****************************** */
+            {/* Resume/Pause button 👇 */}
             <button
 
               className={
@@ -160,15 +163,15 @@ const Timer = () => {
               
               onClick={pauseAndResume}>
 
-              //* icon 👀
+              {/* icon 👀 */}
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"> <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
 
-                  //* Changing resume and pause icon conditionally 👌
+                  // Changing resume and pause icon conditionally 👌
                   d={
                     isRunning
-                      ? "M15.75 5.25v13.5m-7.5-13.5v13.5" //* resume 
+                      ? "M15.75 5.25v13.5m-7.5-13.5v13.5"  //*resume 
                       : "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" //* pause
                   }
                 />
@@ -177,7 +180,7 @@ const Timer = () => {
             </button>
 
 
-            //************************************ Settings/Settings modal opening button 👇 *****************************************/
+            {/* ************************************ Settings/Settings modal opening button 👇 ***************************************** */}
             <button className="btn btn-neutral p-2 btn-circle" onClick={() => window.settingsModal.showModal()}>
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -189,11 +192,11 @@ const Timer = () => {
           </div>
 
 
-          //* Modal *************************************
+          {/* Modal */}
           <dialog id="settingsModal" className="modal bg-black bg-opacity-60 ">
             <form method="dialog" className="modal-box p-10">
 
-              //****************************** modal's default close button 👇 **************************/
+              {/* modal's default close button 👇 */}
               <button className="absolute right-2 top-2 p-2">
                 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 hover:text-error">
@@ -202,21 +205,21 @@ const Timer = () => {
 
               </button>
 
-              //************** modal title aka Settings ⚙️ 👇 **************************************/
+              {/* modal title aka Settings ⚙️ 👇 */}
               <h3 className="font-semibold text-lg">Settings</h3>
 
-              //******************** Form 👇***************************/
+              {/* Form 👇*/}
               <div className="py-4">
 
-                //************************** Actual form 👇  ***********************/
+                {/* Actual form 👇 */}
                 <form className="grid gap-8" onSubmit={handleSubmit}>
 
-                  //*************************** Inputs for minutes and seconds 👇 ****************************/
+                  {/* Inputs for minutes and seconds 👇 */}
                   <div>
                     <label className="block">Time:</label>
                     <div className="join mt-3">
 
-                      //* Minutes
+                      {/* Minutes */}
                       <input
                         type="number"
                         className="input input-primary join-item"
@@ -226,7 +229,7 @@ const Timer = () => {
                         name="minutes"
                       />
 
-                      //* Seconds
+                      {/* Seconds */}
                       <input
                         type="number"
                         className="input input-primary join-item"
@@ -239,7 +242,7 @@ const Timer = () => {
                     </div>
                   </div>
 
-                  //*************************** Alarm duration 👇 *******************************/
+                  {/* Alarm duration 👇 */}
                   <div>
                     <label className="block">Alarm Duration:</label>
                     <input
@@ -252,13 +255,13 @@ const Timer = () => {
                     />
                   </div>
 
-                  //***************************** Form buttons *******************************/
+                  {/* Form buttons */}
                   <div className="mt-5">
 
-                    //* This button is sucking all the input data and has the ability to close this modal 😈
+                    {/* This button is sucking all the input data and has the ability to close this modal 😈 */}
                     <button  className="btn btn-primary text-neutral mr-3" onClick={() => window.settingsModal.close()}>Save</button>
 
-                    //* This button resets every input field 🔧
+                    {/* This button resets every input field 🔧 */}
                     <button className="btn btn-neutral" onClick={handleResetSettings}>reset</button>
                   </div>
 
